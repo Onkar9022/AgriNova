@@ -1,0 +1,109 @@
+crop,stage,day_start,day_end,description,recommended_action,duration_days
+soybean,germination,0,10,"Seed swelling, radical emergence",Ensure moisture; no standing water,11
+soybean,vegetative,11,35,Leaf development V1-V6,Apply Rhizobium; top dress if pale,25
+soybean,flowering,36,60,R1-R2: first flowers open,Apply MOP; avoid N excess,25
+soybean,pod_fill,61,85,R3-R6: pod elongation,Foliar Zinc+Boron spray,25
+soybean,maturity,86,105,R7-R8: pods yellowing,Reduce irrigation; prepare harvest,20
+soybean,harvest,106,115,"Pods brown, 13% moisture",Harvest and dry,10
+cotton,germination,0,14,Seedling emergence,Thin to 1 plant per hill,15
+cotton,vegetative,15,55,"Stem elongation, leaf growth",Urea top dress at 30 DAS,41
+cotton,squaring,56,80,Square/bud formation,Heavy N+K dose; start pest watch,25
+cotton,flowering,81,110,Boll set,Urea; monitor bollworm,30
+cotton,boll_fill,111,150,Boll development,MOP for fibre quality,40
+cotton,harvest,151,180,Bolls open,Pick when fully open,30
+jowar_kharif,germination,0,8,Shoot emergence,Ensure uniform germination,9
+jowar_kharif,vegetative,9,35,Tillering stage,Urea top dress at 25 DAS,27
+jowar_kharif,grand_growth,36,65,Stem elongation,Second Urea dose,30
+jowar_kharif,flowering,66,80,Panicle emergence,Monitor stem borer,15
+jowar_kharif,grain_fill,81,100,Grain development,Reduce water,20
+jowar_kharif,harvest,101,115,Grain hard; 15-20% moisture,Harvest and dry,15
+jowar_rabi,germination,0,8,Emergence,Light irrigation,9
+jowar_rabi,vegetative,9,40,Tillering,Urea at 30 DAS,32
+jowar_rabi,grand_growth,41,70,Elongation,Second N dose,30
+jowar_rabi,flowering,71,90,Panicle exsertion,Watch for charcoal rot in dry spell,20
+jowar_rabi,grain_fill,91,115,Grain filling,Minimal irrigation,25
+jowar_rabi,harvest,116,130,Maturity,Cut and dry sheaves,15
+wheat,germination,0,8,Seedling emergence,CRI irrigation at 20-25 DAS,9
+wheat,tillering,9,35,CRI + tiller formation,Urea first split at CRI,27
+wheat,jointing,36,65,Stem elongation,Second Urea split,30
+wheat,heading,66,85,Flag leaf + ear emergence,Irrigation critical,20
+wheat,grain_fill,86,105,Grain filling,Third split Urea if needed,20
+wheat,harvest,106,120,Grain hardening,Harvest at 18-20% moisture,15
+chickpea,germination,0,10,Emergence,Thin to 25 cm spacing,11
+chickpea,vegetative,11,40,Branching stage,Weed control; light irrigation,30
+chickpea,flowering,41,70,Flower initiation,MOP foliar; watch pod borer,30
+chickpea,pod_fill,71,100,Pod and seed filling,Stress-free irrigation,30
+chickpea,harvest,101,115,"Pods brown, seeds hard",Pull plants; dry in sun,15
+rice,nursery,0,25,Seedling in nursery,Transplant at 25 DAS,26
+rice,vegetative,26,65,Tillering after transplant,Urea at 7 and 30 DAT,40
+rice,panicle_init,66,80,Panicle initiation,Urea+MOP; maintain water level,15
+rice,flowering,81,95,Heading and anthesis,Avoid water stress,15
+rice,grain_fill,96,120,"Grain filling, milk stage",Drain 15 days before harvest,25
+rice,harvest,121,135,Grains golden; 20% moisture,Harvest and thresh,15
+maize_kharif,germination,0,8,Emergence,Ensure good seed-soil contact,9
+maize_kharif,vegetative,9,40,V4-V8 knee high stage,Urea first split at V4,32
+maize_kharif,tasselling,41,65,Tassels emerge,Critical water + Urea split,25
+maize_kharif,silking,66,80,Silk emergence,Cross-pollination period,15
+maize_kharif,grain_fill,81,100,Dough to dent stage,MOP for kernel quality,20
+maize_kharif,harvest,101,115,Black layer formation,Harvest at 25% moisture,15
+groundnut,germination,0,10,Cotyledon emergence,Ensure ridges not compacted,11
+groundnut,vegetative,11,35,Leaf and branch growth,Gypsum broadcast,25
+groundnut,flowering,36,60,Flowers open; pegs form,Gypsum 250 kg/ha; no disturbance,25
+groundnut,peg_fill,61,85,Pod enlargement,Avoid water logging,25
+groundnut,harvest,86,110,Pods filled; kernel oily,"Lift carefully, dry",25
+sugarcane,germination,0,30,Sett sprouting,Trench planting; first irrigation,31
+sugarcane,tillering,31,120,Shoot multiplications,High N dose at 60 DAS,90
+sugarcane,grand_growth,121,240,Rapid elongation,Split N+K every 30 days,120
+sugarcane,maturity,241,330,Sugar accumulation,Stop N; MOP; withhold water,90
+sugarcane,harvest,331,365,Cane fully mature,Harvest at 12-14 months,35
+onion,germination,0,15,Seedling emergence,Transplant at 6-8 leaf stage,16
+onion,vegetative,16,60,Leaf development,Urea split at 20 and 40 DAT,45
+onion,bulb_init,61,90,Bulb initiation,MOP; reduce N,30
+onion,bulb_fill,91,120,Bulb enlargement,No N; high K,30
+onion,harvest,121,135,Tops lodge naturally,Stop irrigation 15 days before harvest,15
+tomato,transplant,0,15,Transplant establishment,Shade if hot; regular irrigation,16
+tomato,vegetative,16,40,Vegetative growth,Urea + MOP,25
+tomato,flowering,41,65,First flower truss,19:19:19 foliar,25
+tomato,fruit_set,66,90,Fruit development,CaNO3 for blossom end rot,25
+tomato,harvest,91,130,Fruits ripening,Pick every 3-4 days,40
+bajra,germination,0,7,Emergence,Thin at 15 DAS,8
+bajra,vegetative,8,30,Tillering,Urea top dress,23
+bajra,flowering,31,55,Panicle emergence,Watch for downy mildew,25
+bajra,grain_fill,56,75,Grain development,Minimal input needed,20
+bajra,harvest,76,90,Grains hard,Harvest before shattering,15
+tur_arhar,germination,0,12,Emergence,Rhizobium seed treatment,13
+tur_arhar,vegetative,13,60,Branch + leaf growth,Weed control,48
+tur_arhar,flowering,61,120,Flower set,MOP; watch pod fly,60
+tur_arhar,pod_fill,121,160,Pod development,Minimal irrigation,40
+tur_arhar,harvest,161,200,Pods brown,Harvest; thresh; dry,40
+banana,establishment,0,60,Sucker establishment,Heavy watering; FYM,61
+banana,vegetative,61,180,Leaf production,Monthly N+K splits,120
+banana,bunch_init,181,240,Inflorescence emergence,High K; remove male bud,60
+banana,bunch_fill,241,300,Bunch filling,MOP; fruit fly management,60
+banana,harvest,301,365,Fingers plump; colour change,Harvest full hand,65
+chilli,transplant,0,20,Establishment after transplant,2-3 irrigations,21
+chilli,vegetative,21,50,Branching growth,Urea + MOP,30
+chilli,flowering,51,80,Flower bud to open flower,19:19:19; thrips watch,30
+chilli,fruit_set,81,120,Fruit development,MOP for pungency,40
+chilli,harvest,121,180,Fruits turning red,Harvest in multiple picks,60
+moong_kharif,germination,0,8,Emergence,No thinning needed,9
+moong_kharif,vegetative,9,30,Leaf growth,Light Urea if pale,22
+moong_kharif,flowering,31,50,Flowers open,MOP foliar,20
+moong_kharif,pod_fill,51,65,Pod development,Avoid water stress,15
+moong_kharif,harvest,66,75,Pods brown,Harvest in 2-3 picks,10
+watermelon,germination,0,8,Seedling emergence,Full sun; warm soil,9
+watermelon,vine_growth,9,30,Runner formation,Urea + MOP,22
+watermelon,flowering,31,50,Male then female flowers,Hand pollination in low bee areas,20
+watermelon,fruit_fill,51,80,Fruit enlargement,MOP for sweetness,30
+watermelon,harvest,81,100,Tendril dries; dull sound on knock,Harvest carefully,20
+pomegranate,dormancy,0,30,After pruning,Apply FYM; DAP+MOP,31
+pomegranate,flush,31,75,New shoot growth,Urea,45
+pomegranate,flowering,76,120,Flower bud to fruit set,Boron spray; MOP,45
+pomegranate,fruit_fill,121,210,Fruit development,MOP + Calcium; aril blotch watch,90
+pomegranate,harvest,211,240,Arils red; metallic ring,Harvest and grade,30
+grapes,pruning_recovery,0,30,Bud break after pruning,Urea + Zinc,31
+grapes,shoot_growth,31,75,Canopy development,Fertigate N+K,45
+grapes,flowering,76,100,Inflorescence to fruit set,Boron spray; no irrigation at bloom,25
+grapes,berry_fill,101,160,Berry enlargement,High K fertigate,60
+grapes,maturity,161,190,Colour + Brix development,Stop N; MOP,30
+grapes,harvest,191,210,Brix 16-22; target variety,Harvest cluster,20

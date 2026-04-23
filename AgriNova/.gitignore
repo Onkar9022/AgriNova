@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# ML Models (large binary files)
+# Uncomment if you want to exclude .pkl files from git
+# *.pkl
+
+# Prisma
+# prisma/migrations/ (keep migrations in git)
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+Thumbs.db

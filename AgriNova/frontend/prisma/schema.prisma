@@ -1,0 +1,211 @@
+// Prisma Schema for AgriNova
+// PostgreSQL via Supabase
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ==================== ENUMS ====================
+
+enum Role {
+  FARMER
+  ADMIN
+}
+
+enum SoilType {
+  BLACK_COTTON
+  RED
+  ALLUVIAL
+  LATERITE
+  SANDY
+}
+
+enum IrrigationType {
+  DRIP
+  FLOOD
+  RAINFED
+  SPRINKLER
+}
+
+enum Season {
+  KHARIF
+  RABI
+  ZAID
+}
+
+enum InputSource {
+  MANUAL
+  SENSOR
+}
+
+enum NutrientStatus {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum PHStatus {
+  ACIDIC
+  NEUTRAL
+  ALKALINE
+}
+
+enum GrievanceStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+}
+
+// ==================== MODELS ====================
+
+model User {
+  id              String         @id @default(uuid())
+  name            String
+  email           String?        @unique
+  phone           String         @unique
+  passwordHash    String         @map("password_hash")
+  role            Role           @default(FARMER)
+  state           String?
+  district        String?
+  taluka          String?
+  soilType        SoilType?      @map("soil_type")
+  landAreaAcres   Float?         @map("land_area_acres")
+  irrigationType  IrrigationType? @map("irrigation_type")
+  primaryCrop     String?        @map("primary_crop")
+  gpsLat          Float?         @map("gps_lat")
+  gpsLng          Float?         @map("gps_lng")
+  deviceId        String?        @map("device_id")
+  createdAt       DateTime       @default(now()) @map("created_at")
+  updatedAt       DateTime       @updatedAt @map("updated_at")
+
+  soilReadings    SoilReading[]
+  predictions     Prediction[]
+  feedbacks       Feedback[]
+  grievances      Grievance[]
+  notifications   Notification[]
+
+  @@map("users")
+}
+
+model SoilReading {
+  id              String      @id @default(uuid())
+  farmerId        String      @map("farmer_id")
+  nitrogenN       Float       @map("nitrogen_n")
+  phosphorusP     Float       @map("phosphorus_p")
+  potassiumK      Float       @map("potassium_k")
+  ph              Float
+  moisture        Float
+  temperatureSoil Float       @map("temperature_soil")
+  ec              Float
+  rainfallMm      Float?      @map("rainfall_mm")
+  airTemp         Float?      @map("air_temp")
+  airHumidity     Float?      @map("air_humidity")
+  season          Season
+  previousCrop    String?     @map("previous_crop")
+  cropPlanted     Boolean     @default(false) @map("crop_planted")
+  plantedCropName String?     @map("planted_crop_name")
+  plantingDate    DateTime?   @map("planting_date")
+  inputSource     InputSource @default(MANUAL) @map("input_source")
+  createdAt       DateTime    @default(now()) @map("created_at")
+
+  farmer          User        @relation(fields: [farmerId], references: [id])
+  prediction      Prediction?
+
+  @@map("soil_readings")
+}
+
+model Prediction {
+  id                     String         @id @default(uuid())
+  readingId              String         @unique @map("reading_id")
+  farmerId               String         @map("farmer_id")
+  cropRank1              String         @map("crop_rank_1")
+  cropRank1Confidence    Float          @map("crop_rank_1_confidence")
+  cropRank2              String?        @map("crop_rank_2")
+  cropRank2Confidence    Float?         @map("crop_rank_2_confidence")
+  cropRank3              String?        @map("crop_rank_3")
+  cropRank3Confidence    Float?         @map("crop_rank_3_confidence")
+  fertilizerName         String?        @map("fertilizer_name")
+  fertilizerDosageKgAcre Float?         @map("fertilizer_dosage_kg_acre")
+  phStatus               PHStatus?      @map("ph_status")
+  nStatus                NutrientStatus? @map("n_status")
+  pStatus                NutrientStatus? @map("p_status")
+  kStatus                NutrientStatus? @map("k_status")
+  growthStage            String?        @map("growth_stage")
+  daysSincePlanting      Int?           @map("days_since_planting")
+  moistureContent        Float?         @map("moisture_content")
+  explanationReasons     Json?          @map("explanation_reasons")
+  createdAt              DateTime       @default(now()) @map("created_at")
+
+  reading                SoilReading    @relation(fields: [readingId], references: [id])
+  farmer                 User           @relation(fields: [farmerId], references: [id])
+  feedbacks              Feedback[]
+
+  @@map("predictions")
+}
+
+model Feedback {
+  id                     String     @id @default(uuid())
+  predictionId           String     @map("prediction_id")
+  farmerId               String     @map("farmer_id")
+  followedRecommendation Boolean    @map("followed_recommendation")
+  actualCropPlanted      String?    @map("actual_crop_planted")
+  outcomeRating          Int?       @map("outcome_rating")
+  notes                  String?
+  createdAt              DateTime   @default(now()) @map("created_at")
+
+  prediction             Prediction @relation(fields: [predictionId], references: [id])
+  farmer                 User       @relation(fields: [farmerId], references: [id])
+
+  @@map("feedback")
+}
+
+model Grievance {
+  id              String          @id @default(uuid())
+  farmerId        String          @map("farmer_id")
+  title           String
+  description     String
+  status          GrievanceStatus @default(OPEN)
+  adminResponse   String?         @map("admin_response")
+  createdAt       DateTime        @default(now()) @map("created_at")
+  updatedAt       DateTime        @updatedAt @map("updated_at")
+
+  farmer          User            @relation(fields: [farmerId], references: [id])
+
+  @@map("grievances")
+}
+
+enum NotificationType {
+  INFO
+  WARNING
+  SUCCESS
+}
+
+model Notification {
+  id              String           @id @default(uuid())
+  userId          String?          @map("user_id") // Null means global broadcast
+  title           String
+  message         String
+  type            NotificationType @default(INFO)
+  isRead          Boolean          @default(false) @map("is_read")
+  createdAt       DateTime         @default(now()) @map("created_at")
+
+  user            User?            @relation(fields: [userId], references: [id])
+
+  @@map("notifications")
+}
+
+model AiCache {
+  id          String   @id @default(uuid())
+  cacheKey    String   @unique @map("cache_key")
+  explanation String   @db.Text
+  expiresAt   DateTime @map("expires_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("ai_cache")
+}
